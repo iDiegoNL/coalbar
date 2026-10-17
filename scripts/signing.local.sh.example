@@ -1,0 +1,4 @@
+# Copy this file to scripts/signing.local.sh (ignored by Git).
+# Find available identities with: security find-identity -v -p codesigning
+# Choose your own Apple Development or Developer ID Application certificate.
+COALBAR_SIGNING_IDENTITY='Apple Development: YOUR NAME (YOUR CERTIFICATE ID)'

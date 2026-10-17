@@ -1,0 +1,34 @@
+# Replace switch.coal_heater with your smart plug's entity ID.
+# Add these automations through Home Assistant's automation editor.
+# CoalBar reads their durations; it never runs or edits these actions.
+
+- id: coalbar_heater_auto_off
+  alias: Coal heater auto-off
+  triggers:
+    - trigger: state
+      entity_id: switch.coal_heater
+      to: "on"
+      for:
+        minutes: 13
+  conditions: []
+  actions:
+    - action: switch.turn_off
+      target:
+        entity_id: switch.coal_heater
+  mode: single
+
+- id: coalbar_fresh_coals_reminder
+  alias: Fresh coals reminder
+  triggers:
+    - trigger: state
+      entity_id: switch.coal_heater
+      to: "off"
+      for:
+        hours: 1
+  conditions: []
+  actions:
+    - action: persistent_notification.create
+      data:
+        title: Time for new coals?
+        message: The coal heater has been off for one hour.
+  mode: single

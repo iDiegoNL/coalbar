@@ -1,0 +1,33 @@
+{
+  "fill": {
+    "automatic-gradient": "extended-srgb:0.10000,0.07500,0.06500,1.00000"
+  },
+  "groups": [
+    {
+      "layers": [
+        {
+          "image-name": "Coals.svg",
+          "name": "Glowing coals"
+        },
+        {
+          "image-name": "Heater.svg",
+          "name": "Heater"
+        }
+      ],
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.5
+      },
+      "translucency": {
+        "enabled": true,
+        "value": 0.15
+      }
+    }
+  ],
+  "supported-platforms": {
+    "circles": [
+      "watchOS"
+    ],
+    "squares": "shared"
+  }
+}

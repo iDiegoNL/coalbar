@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<defs><linearGradient id="metal" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#82766d"/><stop offset="0.32" stop-color="#4e4742"/><stop offset="1" stop-color="#222224"/></linearGradient><linearGradient id="hot"><stop stop-color="#d54b29"/><stop offset="0.5" stop-color="#ffb75a"/><stop offset="1" stop-color="#d54b29"/></linearGradient></defs>
+<rect x="257" y="743" width="98" height="39" rx="14" fill="#161619"/><rect x="669" y="743" width="98" height="39" rx="14" fill="#161619"/>
+<rect x="201" y="594" width="622" height="166" rx="65" fill="url(#metal)" stroke="#a3968b" stroke-width="5"/>
+<ellipse cx="512" cy="610" rx="301" ry="78" fill="#19171a" stroke="#706359" stroke-width="5"/>
+<ellipse cx="512" cy="612" rx="265" ry="53" fill="none" stroke="url(#hot)" stroke-width="11"/>
+<ellipse cx="512" cy="612" rx="219" ry="32" fill="none" stroke="#ef733c" stroke-width="8" opacity="0.6"/>
+<circle cx="735" cy="706" r="12" fill="#ff9147"/><rect x="264" y="699" width="92" height="10" rx="5" fill="#ad9d90" opacity="0.45"/>
+</svg>
