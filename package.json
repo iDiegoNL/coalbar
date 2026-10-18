@@ -28,6 +28,7 @@
     "vite": "^7.1.0"
   },
   "build": {
+    "afterPack": "desktop/after-pack.cjs",
     "appId": "local.coalbar.desktop",
     "productName": "CoalBar",
     "directories": {

@@ -11,16 +11,6 @@ const {
   screen,
 } = require("electron");
 const { panelPosition, trayBitmap } = require("./core/tray.cjs");
-// Ozone must be selected at process startup, before Chromium initializes.
-if (
-  app.isPackaged &&
-  process.platform === "linux" &&
-  process.env.DISPLAY &&
-  !process.argv.some((arg) => arg.startsWith("--ozone-platform="))
-) {
-  app.relaunch({ args: [...process.argv.slice(1), "--ozone-platform=x11"] });
-  app.exit(0);
-}
 const fs = require("node:fs");
 const path = require("node:path");
 let panel,
@@ -205,7 +195,9 @@ function setLogin(enabled) {
       app.getPath("appData"),
       "autostart/coalbar.desktop",
     );
-    const executable = process.env.APPIMAGE || app.getPath("exe");
+    const executable =
+      process.env.APPIMAGE ||
+      path.join(path.dirname(app.getPath("exe")), "coalbar");
     if (/[\n\r]/.test(executable)) throw Error("Unsupported executable path.");
     const quoted =
       '"' + executable.replace(/[\\"`$]/g, "\\$&").replace(/%/g, "%%") + '"';

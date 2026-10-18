@@ -23,6 +23,8 @@ For live use you need a reachable Home Assistant server, a long-lived access tok
 - **Windows:** Windows 10 or later, desktop notifications enabled for CoalBar, and an installed build for login startup. The installer is NSIS. Windows protects the encrypted token using the current user’s credentials.
 - macOS packaging is also configured, but the original Swift version offers the native Liquid Glass presentation.
 
+Packaged Linux builds select X11 in their launcher before Electron starts when `DISPLAY` is available. An explicit `--ozone-platform=wayland` overrides this choice, but native Wayland limits popup positioning. The launcher is shared by AppImage and deb builds; startup does not require an Electron relaunch.
+
 ## Features and behavior
 
 - Countdown from the plug’s state-change timestamp and automation duration; halfway flip reminder, actual switch-off completion reminder, and fresh-coal reminder.
