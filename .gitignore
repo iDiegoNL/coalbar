@@ -24,3 +24,4 @@ scripts/signing.local.sh
 # React Native desktop build
 node_modules/
 release/
+*.tgz
