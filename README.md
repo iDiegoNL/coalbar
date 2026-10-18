@@ -126,6 +126,8 @@ An additional React Native Web/Electron client is available for Linux and Window
 
 See [Linux and Windows setup](docs/DESKTOP.md) for requirements, development commands, packaging, and current platform limitations.
 
+For KDE Plasma 6, see [widget packaging and installation](docs/DESKTOP.md#kde-plasma-panel-integration) to create a distributable `.plasmoid` package, install it, or upgrade an existing widget. The widget requires the CoalBar desktop app running in the background.
+
 ## License
 
 [MIT](LICENSE).

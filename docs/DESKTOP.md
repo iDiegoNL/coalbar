@@ -79,11 +79,31 @@ This is a React Native Web desktop application hosted by Electron, not a native-
 
 On Plasma 6, use the bundled native panel widget for a readable icon + countdown/status label and a popup positioned by Plasma itself, including on Wayland. The Electron tray remains the fallback on other desktops.
 
+### Package and install the widget
+
+The widget is distributed as a ZIP archive with a `.plasmoid` extension. With `zip` installed, run these commands from the repository root:
+
+```sh
+mkdir -p release
+(cd desktop/plasma/package && zip -r ../../../release/coalbar.plasmoid metadata.json contents)
+kpackagetool6 --type Plasma/Applet --install release/coalbar.plasmoid
+```
+
+This creates `release/coalbar.plasmoid`, with `metadata.json` and `contents/` at the archive root. Share this file alongside the Linux app. `pnpm dist` builds the desktop installers; it does not create this separate widget archive.
+
+To update an installed widget after rebuilding the archive:
+
+```sh
+kpackagetool6 --type Plasma/Applet --upgrade release/coalbar.plasmoid
+```
+
+For development, you can also install directly from the source directory without creating an archive:
+
 ```sh
 kpackagetool6 --type Plasma/Applet --install desktop/plasma/package
 # Use --upgrade instead of --install for subsequent updates.
 ```
 
-Add **CoalBar** through the panel’s **Add Widgets** menu, beside the system tray. Restart CoalBar with `pnpm start`. The widget receives the existing app’s countdown and reminders; it does not connect to Home Assistant separately. The duplicate generic tray icon automatically disappears while the widget is connected. Remove the widget to restore the generic tray.
+Add **CoalBar** through the panel’s **Add Widgets** menu, beside the system tray. Launch the installed CoalBar desktop app or AppImage, or use `pnpm start` during development. Keep the app running in the background: the widget receives its countdown and reminders and does not connect to Home Assistant separately. The duplicate generic tray icon automatically disappears while the widget is connected. Remove the widget to restore the generic tray.
 
 The KDE-only bridge listens on `127.0.0.1:43179`. It shares presentation state only, never Home Assistant tokens, URLs, entity lists, or configuration. Browser origins are rejected; button commands require a per-process nonce and are limited to settings, dismissal, quitting CoalBar, and demo controls. No heater-control operations are exposed. If the port is occupied, the app keeps its generic tray and reports the bridge error in Settings.
