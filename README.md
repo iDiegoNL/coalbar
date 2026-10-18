@@ -120,6 +120,14 @@ The artwork includes an editable [Apple Icon Composer project](Artwork/AppIcon.i
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for development notes.
 
+## Linux and Windows support
+
+An additional React Native Web/Electron client is available for Linux and Windows, including a native KDE Plasma panel widget. The Swift macOS app and its build process remain unchanged.
+
+See [Linux and Windows setup](docs/DESKTOP.md) for requirements, development commands, packaging, and current platform limitations.
+
+For KDE Plasma 6, see [widget packaging and installation](docs/DESKTOP.md#kde-plasma-panel-integration) to create a distributable `.plasmoid` package, install it, or upgrade an existing widget. The widget requires the CoalBar desktop app running in the background.
+
 ## License
 
 [MIT](LICENSE).

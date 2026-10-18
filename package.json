@@ -1,0 +1,67 @@
+{
+  "name": "coalbar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Home Assistant coal heater companion",
+  "author": "CoalBar contributors",
+  "license": "MIT",
+  "type": "module",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "build": "vite build",
+    "start": "pnpm build && node desktop/launch.cjs .",
+    "test": "node --test desktop/test/*.test.mjs",
+    "pack": "pnpm build && electron-builder --dir",
+    "dist": "pnpm build && electron-builder",
+    "test:desktop": "pnpm build && node desktop/launch.cjs desktop/test/smoke.cjs",
+    "format": "prettier --write desktop package.json vite.config.mjs"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-native-web": "^0.21.2"
+  },
+  "devDependencies": {
+    "electron": "^43.0.0",
+    "electron-builder": "^26.0.12",
+    "prettier": "^3.9.10",
+    "vite": "^7.1.0"
+  },
+  "build": {
+    "afterPack": "desktop/after-pack.cjs",
+    "appId": "local.coalbar.desktop",
+    "productName": "CoalBar",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "desktop/main.cjs",
+      "desktop/preload.cjs",
+      "desktop/core/**",
+      "dist/desktop/**",
+      "Artwork/AppIcon-preview.png",
+      "LICENSE",
+      "desktop/plasma/package/**"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility",
+      "icon": "Artwork/AppIcon-preview.png",
+      "syncDesktopName": true,
+      "maintainer": "CoalBar contributors"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "Artwork/AppIcon-preview.png"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "Artwork/AppIcon-preview.png"
+    }
+  },
+  "homepage": "https://github.com/iDiegoNL/coalbar",
+  "desktopName": "local.coalbar.desktop"
+}

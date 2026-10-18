@@ -13,3 +13,7 @@ If a Home Assistant token is accidentally exposed, revoke it in Home Assistant a
 Generated app bundles, build output, local signing configuration, environment files, and common private-key formats are ignored. Review staged files before committing; ignore rules are not a substitute for reviewing changes.
 
 Use a trusted local network for HTTP connections or configure HTTPS. Keep a consistent code-signing identity for regular use. Avoid disabling Keychain protections to suppress development approval prompts.
+
+## React Native desktop port
+
+The desktop port keeps Home Assistant networking and encrypted token persistence in Electron’s main process. The sandboxed renderer uses a restricted preload bridge and cannot read the saved token. Electron safeStorage must have OS-backed encryption; Linux basic_text storage is refused. Redirects are refused and requests are GET-only. Keep Electron and renderer dependencies updated, and validate packaged releases on both operating systems.
