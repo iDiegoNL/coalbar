@@ -1,0 +1,14 @@
+{
+  "KPlugin": {
+    "Id": "local.coalbar.panel",
+    "Name": "CoalBar",
+    "Description": "Live coal heater countdown and reminders from CoalBar",
+    "Icon": "preferences-system-power-management",
+    "Version": "1.0.0",
+    "License": "MIT",
+    "Category": "Utilities",
+    "Authors": [{ "Name": "CoalBar contributors" }]
+  },
+  "KPackageStructure": "Plasma/Applet",
+  "X-Plasma-API-Minimum-Version": "6.0"
+}

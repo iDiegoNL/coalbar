@@ -21,3 +21,9 @@ Source layout:
 - `Sources/CoalBar/Domain.swift` and `AutomationTiming.swift`: state and timing calculations.
 - `Tests/CoalBarTests`: behavioral tests.
 - `Artwork`: vector artwork and Icon Composer project.
+
+## Linux and Windows client
+
+The additional client lives in `desktop/`; see [its setup guide](docs/DESKTOP.md). Use Node.js 22.12+ and pnpm 12. Run `pnpm test`, `pnpm build`, and `pnpm test:desktop` in a graphical session. Build releases on their target operating systems with `pnpm dist`. Test tray behavior, notifications, secure storage, and login startup on each target. KDE's optional panel integration lives in `desktop/plasma/`.
+
+Keep platform additions independent of the Swift app and its packaging. The same read-only Home Assistant and credential-handling rules apply to both clients.

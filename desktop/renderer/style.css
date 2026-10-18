@@ -1,0 +1,160 @@
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  background: #151719;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+  color-scheme: dark;
+}
+* {
+  box-sizing: border-box;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #42464b;
+  border-radius: 7px;
+  background: #131517;
+  color: #fff;
+  font: 14px system-ui;
+}
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid #ffa56b;
+  outline-offset: 3px;
+}
+.heater {
+  height: 130px;
+  position: relative;
+  margin: 3px auto 6px;
+  width: 180px;
+  flex-shrink: 0;
+}
+.stove {
+  position: absolute;
+  bottom: 13px;
+  left: 11px;
+  width: 158px;
+  height: 34px;
+  border: 1px solid #505050;
+  border-radius: 12px;
+  background: linear-gradient(#494949, #202020);
+  box-shadow: 0 5px 0 #080909;
+}
+.stove:before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 7px;
+  width: 142px;
+  height: 20px;
+  border-radius: 50%;
+  background: #090909;
+}
+.stove b {
+  position: absolute;
+  right: 19px;
+  bottom: 10px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #666;
+}
+.coals {
+  position: absolute;
+  bottom: 42px;
+  left: 29px;
+  display: flex;
+  gap: 5px;
+  z-index: 1;
+}
+.coals i {
+  height: 37px;
+  width: 38px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #454545, #202020);
+  border: 1.5px solid #555;
+  transform: rotate(-12deg);
+}
+.coals i:nth-child(2) {
+  transform: translateY(-6px);
+}
+.coals i:nth-child(3) {
+  transform: rotate(12deg);
+}
+.coals i:after {
+  content: "";
+  display: block;
+  width: 23px;
+  height: 19px;
+  margin: 5px;
+  border-left: 1px solid #665043;
+  border-bottom: 1px solid #665043;
+  transform: rotate(-37deg);
+}
+.active .coals i {
+  background: linear-gradient(135deg, #6c2917, #25201d);
+  border-color: #e88c51;
+  animation: glow 2.8s ease-in-out infinite alternate;
+}
+.active .stove b {
+  background: #ff9f5d;
+}
+.heat {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  left: 55px;
+  top: 9px;
+  opacity: 0;
+}
+.active .heat {
+  opacity: 0.5;
+}
+.heat i {
+  height: 30px;
+  width: 7px;
+  border-left: 2px solid #e88c51;
+  border-radius: 50%;
+  animation: rise 2s ease-in-out infinite alternate;
+}
+.paused * {
+  animation-play-state: paused !important;
+}
+.solid .heater .coals i {
+  box-shadow: none;
+}
+.solid .heat {
+  display: none;
+}
+@keyframes glow {
+  from {
+    box-shadow: 0 0 6px #b5542933;
+  }
+  to {
+    box-shadow: 0 0 14px #ef762977;
+  }
+}
+@keyframes rise {
+  to {
+    transform: translateY(-6px) rotate(9deg);
+    opacity: 0.3;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .coals i {
+    box-shadow: none !important;
+  }
+  .heat {
+    display: none;
+  }
+}
